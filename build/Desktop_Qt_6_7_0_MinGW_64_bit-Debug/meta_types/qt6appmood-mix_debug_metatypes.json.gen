@@ -1,2 +1,47 @@
 [
+    {
+        "classes": [
+            {
+                "className": "SongManager",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "artist",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "addSong",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "query",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "searchSongs",
+                        "returnType": "QVariantList"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "SongManager",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "songmanager.h",
+        "outputRevision": 68
+    }
 ]

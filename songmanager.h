@@ -5,7 +5,7 @@
 #include <QString>
 #include <QVector>
 #include <QVariant>
-#include <tsl/htrie_map.h>
+#include "tsl/htrie_map.h"
 
 struct Song {
     QString name;

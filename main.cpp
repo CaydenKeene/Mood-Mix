@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
-    engine.loadFromModule("BRUH", "Main");
+    engine.loadFromModule("Mood-Mix", "Main");
 
     return app.exec();
 }

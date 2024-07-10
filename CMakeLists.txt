@@ -31,8 +31,13 @@ set_target_properties(appMood-Mix PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
+include_directories(${CMAKE_SOURCE_DIR}/libs/hat-trie/include)
+
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/hat-trie)
+
 target_link_libraries(appMood-Mix
     PRIVATE Qt6::Quick
+    PRIVATE tsl::hat_trie
 )
 
 include(GNUInstallDirs)

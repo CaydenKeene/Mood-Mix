@@ -48,7 +48,6 @@ Window {
         interactive: false
 
         //model: ListModel {}
-
         delegate: Item {
             width: listView.width
             height: 56
@@ -88,9 +87,9 @@ Window {
                     anchors.left: parent.left
                     anchors.leftMargin: 20
                     anchors.top: parent.top
-                    anchors.topMargin: 2
+                    anchors.topMargin: -4
                     text: modelData.name
-                    font.pointSize: 25
+                    font.pointSize: 22.5
                     color: "#EEEEEE"
                 }
 
@@ -100,7 +99,7 @@ Window {
                     anchors.top: parent.top
                     anchors.topMargin: 30
                     text: modelData.artist
-                    font.pointSize: 15
+                    font.pointSize: 14
                     color: "#EEEEEE"
                 }
             }
@@ -108,7 +107,7 @@ Window {
 
         Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: searchField.bottom
+            //anchors.top: searchField.bottom
             width: listView.width
             height: 56
             color: "#313338"
@@ -142,6 +141,5 @@ Window {
                 anchors.centerIn: parent
             }
         }
-
     }
 }
