@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/Mood-Mix/">
+    <file alias="Main.qml">C:/Users/cayde/Desktop/Qt Test Projects/Mood-Mix/Main.qml</file>
+  </qresource>
+</RCC>
+
