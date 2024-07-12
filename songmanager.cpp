@@ -3,6 +3,7 @@
 SongManager::SongManager(QObject *parent)
     : QObject{parent}
 {
+    /*
     addSong("Song 1", "Artist 1");
     addSong("Song 2", "Artist 2");
     addSong("Song 3", "Artist 3");
@@ -12,19 +13,32 @@ SongManager::SongManager(QObject *parent)
     addSong("Song 7", "Artist 7");
     addSong("Song 8", "Artist 8");
 
+*/
+    _data.LoadData("dataset.csv");
+    addSongs();
 }
 
-void SongManager::addSong(const QString &name, const QString &artist) {
+void SongManager::addSongs()
+{
+    for(auto _song : _data.GetAllSongs())
+    {
+        m_trie.insert(_song->_trackName.toLower().toStdString(), _song);
+    }
+}
+
+void SongManager::addSong(const QString &name, const QString &artist)
+{
     //creates and instance of the song struct and sets the name and the artist
-    auto song = std::make_shared<Song>(Song{name, artist});
+    //auto song = std::make_shared<Song>(Song{name, artist});
     //m_songs.append(song);
 
-    std::string nameStd = name.toLower().toStdString();
+    //std::string nameStd = name.toLower().toStdString();
     //qDebug() << "Inserting song:" << QString::fromStdString(nameStd) << "by" << artist;
-    m_trie.insert(nameStd.c_str(), song);
+   // m_trie.insert(nameStd.c_str(), song);
 }
 
-QVariantList SongManager::searchSongs(const QString &query) {
+QVariantList SongManager::searchSongs(const QString &query)
+{
     QVariantList results;
     int count = 0;
 
@@ -33,8 +47,8 @@ QVariantList SongManager::searchSongs(const QString &query) {
     auto range = m_trie.equal_prefix_range(queryStd);
     for (auto it = range.first; it != range.second && count < 5; ++it) {
         QVariantMap songMap;
-        songMap["name"] = it.value()->name;
-        songMap["artist"] = it.value()->artist;
+        songMap["name"] = it.value()->_trackName;
+        songMap["artist"] = it.value()->_artist;
         results.append(songMap);
         count++;
     }

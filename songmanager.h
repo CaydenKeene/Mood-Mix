@@ -3,14 +3,11 @@
 
 #include <QObject>
 #include <QString>
-#include <QVector>
 #include <QVariant>
+#include <QVector>
+#include "DataAccess.h"
 #include "tsl/htrie_map.h"
 
-struct Song {
-    QString name;
-    QString artist;
-};
 
 class SongManager : public QObject
 {
@@ -19,11 +16,13 @@ public:
     explicit SongManager(QObject *parent = nullptr);
 
     Q_INVOKABLE void addSong(const QString &name, const QString &artist);
+    Q_INVOKABLE void addSongs();
     Q_INVOKABLE QVariantList searchSongs(const QString &query);
 
 private:
     QVector<std::shared_ptr<Song>> m_songs;
-    tsl::htrie_map<char, std::shared_ptr<Song>> m_trie;
+    tsl::htrie_map<char, Song*> m_trie;
+    DataAccess _data;
 };
 
 #endif // SONGMANAGER_H
