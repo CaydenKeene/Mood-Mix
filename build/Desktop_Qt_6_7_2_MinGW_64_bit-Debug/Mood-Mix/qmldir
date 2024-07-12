@@ -1,0 +1,5 @@
+module Mood-Mix
+typeinfo appMood-Mix.qmltypes
+prefer :/qt/qml/Mood-Mix/
+Main 1.0 Main.qml
+
