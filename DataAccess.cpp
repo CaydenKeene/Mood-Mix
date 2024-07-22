@@ -65,7 +65,11 @@ void DataAccess::LoadData(std::string fileName)
             getline(inStream, tempData, ','); // duration_ms (float)
 
             getline(inStream, tempData, ','); // explicit (bool)
-            tempSong->_explicit = (tempData == "TRUE") ? true : false;
+            tempSong->_explicit = (tempData == "True") ? true : false;
+            if(tempSong->_explicit)
+            {
+                continue;   // Skip if explicit is true
+            }
 
             getline(inStream, tempData, ','); // danceability (float)
             tempSong->_danceability = std::stof(tempData);
