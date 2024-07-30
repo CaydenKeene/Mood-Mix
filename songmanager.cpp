@@ -3,19 +3,13 @@
 SongManager::SongManager(QObject *parent)
     : QObject{parent}
 {
-    /*
-    addSong("Song 1", "Artist 1");
-    addSong("Song 2", "Artist 2");
-    addSong("Song 3", "Artist 3");
-    addSong("Song 4", "Artist 4");
-    addSong("Song 5", "Artist 5");
-    addSong("Song 6", "Artist 6");
-    addSong("Song 7", "Artist 7");
-    addSong("Song 8", "Artist 8");
-
-*/
     _data.LoadData("dataset.csv");
     addSongs();
+
+    // TODO: Remove these two lines
+    // This is how I tested the merge sort
+    //SongAttributes testSong = danceability;
+    //_data.SortByMergeSort(_data.GetAllSongs().front(), testSong);
 }
 
 void SongManager::addSongs()

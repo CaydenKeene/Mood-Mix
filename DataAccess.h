@@ -8,6 +8,7 @@
 #include <string>
 #include <iostream>
 #include <QObject>
+#include <cmath>
 
 
 struct Song
@@ -25,24 +26,39 @@ struct Song
     bool _explicit;
 };
 
+enum SongAttributes
+{
+    danceability, energy, loudness, valence, tempo
+};
 
 class DataAccess : public QObject
 {
 private:
     std::unordered_map<QString, QVector<Song*>> _genreCollection;
     QVector<Song*> _allSongs;
+    QVector<Song*> _mergeSorted;
 
+    // For getting data from csv
     std::string GetColumnData(std::istringstream& dataStream);
+
+    // For merge sort
+    void merge(QVector<Song*>& songList, SongAttributes& songAttribute, int left, int mid, int right, const float &attributeVal);
+    void mergeSort(QVector<Song*>& songList, SongAttributes& songAttribute, int left, int right, const float& attributeVal);
+
     Q_OBJECT
 public:
     explicit DataAccess(QObject *parent = nullptr);
     DataAccess(std::string fileName);
     ~DataAccess();
 
+    // For getting data from csv
     Q_INVOKABLE void LoadData(std::string fileName);
 
     Q_INVOKABLE QVector<Song*>& GetSongsByGenre(QString& genreName);
     Q_INVOKABLE QVector<Song*>& GetAllSongs();
+
+    // For merge sort
+    QVector<Song*> SortByMergeSort(Song* song, SongAttributes songAttribute);
 };
 
 #endif // DATAACCESS_H
