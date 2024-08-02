@@ -20,8 +20,8 @@ qt_add_qml_module(appMood-Mix
         SOURCES songmanager.cpp songmanager.h
         SOURCES tsl/array-hash/array_growth_policy.h tsl/array-hash/array_hash.h tsl/array-hash/array_map.h tsl/array-hash/array_set.h tsl/htrie_hash.h tsl/htrie_map.h tsl/htrie_set.h
         SOURCES DataAccess.cpp DataAccess.h
-#SOURCES libs/hat-trie/include/tsl/array-hash/array_growth_policy.h libs/hat-trie/include/tsl/array-hash/array_hash.h libs/hat-trie/include/tsl/array-hash/array_map.h libs/hat-trie/include/tsl/array-hash/array_set.h libs/hat-trie/include/tsl/htrie_hash.h libs/hat-trie/include/tsl/htrie_map.h libs/hat-trie/include/tsl/htrie_set.h libs/hat-trie/tests/main.cpp libs/hat-trie/tests/trie_map_tests.cpp libs/hat-trie/tests/trie_set_tests.cpp libs/hat-trie/tests/utils.h
-#RESOURCES libs/hat-trie/tests/CMakeLists.txt libs/hat-trie/.codecov.yml libs/hat-trie/CMakeLists.txt libs/hat-trie/doxygen.conf libs/hat-trie/LICENSE libs/hat-trie/README.md
+        QML_FILES Components/Attribute.qml
+        QML_FILES Components/Search.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -34,10 +34,6 @@ set_target_properties(appMood-Mix PROPERTIES
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
-
-#include_directories(${CMAKE_SOURCE_DIR}/libs/hat-trie/include)
-
-#add_subdirectory(${CMAKE_SOURCE_DIR}/libs/hat-trie)
 
 target_link_libraries(appMood-Mix
     PRIVATE Qt6::Quick

@@ -2,6 +2,52 @@
     {
         "classes": [
             {
+                "className": "DataAccess",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "fileName",
+                                "type": "std::string"
+                            }
+                        ],
+                        "name": "LoadData",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "genreName",
+                                "type": "QString&"
+                            }
+                        ],
+                        "name": "GetSongsByGenre",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "GetAllSongs",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "DataAccess",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "DataAccess.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
                 "className": "SongManager",
                 "methods": [
                     {
@@ -17,6 +63,11 @@
                             }
                         ],
                         "name": "addSong",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "addSongs",
                         "returnType": "void"
                     },
                     {
