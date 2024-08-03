@@ -4,15 +4,21 @@ import "./Components"
 
 Window {
     minimumWidth: 1280
-    minimumHeight: 800
+    minimumHeight: 850
     maximumWidth: 1280
-    maximumHeight: 800
+    maximumHeight: 850
     visible: true
     color: "#313338"
     title: qsTr("Mood Mix")
 
     Material.theme: Material.Dark
     Material.accent: Material.Blue
+
+    MouseArea {
+        id: clickArea
+        anchors.fill: parent
+        onClicked: search.searching = false
+    }
 
     Text {
         id: title
@@ -21,17 +27,14 @@ Window {
         color: "white"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        anchors.topMargin: 35
+        anchors.topMargin: 30
     }
 
     Search {
+        id: search
         width: 500
         height: parent.height
         anchors.centerIn: parent
-        Rectangle {
-            anchors.fill: parent
-            visible: false
-        }
     }
 
     Attribute {
@@ -43,9 +46,16 @@ Window {
         }
         width: 300
         height: 300
-        Rectangle {
-            anchors.fill: parent
-            visible: false
+    }
+
+    TimeCompare {
+        anchors {
+            top: parent.top
+            topMargin: 150
+            left: parent.left
+            leftMargin: 55
         }
+        width: 300
+        height: 225
     }
 }

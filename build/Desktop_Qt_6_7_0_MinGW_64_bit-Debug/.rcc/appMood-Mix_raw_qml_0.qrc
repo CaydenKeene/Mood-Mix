@@ -3,6 +3,7 @@
     <file alias="Main.qml">C:/Users/cayde/Desktop/Qt Test Projects/Mood-Mix/Main.qml</file>
     <file alias="Components/Attribute.qml">C:/Users/cayde/Desktop/Qt Test Projects/Mood-Mix/Components/Attribute.qml</file>
     <file alias="Components/Search.qml">C:/Users/cayde/Desktop/Qt Test Projects/Mood-Mix/Components/Search.qml</file>
+    <file alias="Components/TimeCompare.qml">C:/Users/cayde/Desktop/Qt Test Projects/Mood-Mix/Components/TimeCompare.qml</file>
   </qresource>
 </RCC>
 

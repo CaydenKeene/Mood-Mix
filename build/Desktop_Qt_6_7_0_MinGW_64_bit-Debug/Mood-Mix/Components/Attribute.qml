@@ -4,21 +4,22 @@ import QtQuick.Controls.Material
 Item {
     Text {
         text: "Select Attribute"
-        font.pointSize: 15
+        font.pointSize: 20
         font.bold: true
         color: "white"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        anchors.topMargin: 40
+        anchors.topMargin: 35
     }
 
     ComboBox {
-        width: 150
+        width: 200
         height: 65
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: 70
         editable: false
         model: ["danceability", "energy", "loudness", "valence", "tempo"]
+        font.pointSize: 15
     }
 }

@@ -36,10 +36,13 @@ QVariantList SongManager::searchSongs(const QString &query)
     QVariantList results;
     int count = 0;
 
-    std::string queryStd = query.toLower().toStdString();
+    if (query.length() == 0) {
+        return results;
+    }
 
+    std::string queryStd = query.toLower().toStdString();
     auto range = m_trie.equal_prefix_range(queryStd);
-    for (auto it = range.first; it != range.second && count < 5; ++it) {
+    for (auto it = range.first; it != range.second && count < 10; ++it) {
         QVariantMap songMap;
         songMap["name"] = it.value()->_trackName;
         songMap["artist"] = it.value()->_artist;

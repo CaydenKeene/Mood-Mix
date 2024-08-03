@@ -22,6 +22,7 @@ qt_add_qml_module(appMood-Mix
         SOURCES DataAccess.cpp DataAccess.h
         QML_FILES Components/Attribute.qml
         QML_FILES Components/Search.qml
+        QML_FILES Components/TimeCompare.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
