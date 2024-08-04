@@ -24,6 +24,7 @@ Window {
         id: title
         text: "Mood Mix"
         font.pointSize: 50
+        font.underline: true
         color: "white"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
@@ -40,13 +41,14 @@ Window {
     Attribute {
         anchors {
             top: parent.top
-            topMargin: 75
             right: parent.right
             rightMargin: 60
         }
         width: 300
-        height: 300
-        onAttributeChanged: search.selectedAttribute = newAttribute
+        height: parent.height
+        onAttributeChanged: {
+            search.selectedAttribute = newAttribute
+        }
     }
 
     TimeCompare {

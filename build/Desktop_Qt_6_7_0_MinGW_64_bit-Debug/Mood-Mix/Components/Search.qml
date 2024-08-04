@@ -195,7 +195,7 @@ Item {
         Text {
             width: 450
             elide: Text.ElideRight
-            text: "Songs similar to " + selectedSongName
+            text: "Songs similar to <b>" + selectedSongName + "</b>"
             font.pointSize: 20
             color: "white"
             horizontalAlignment: Text.AlignHCenter
@@ -203,15 +203,7 @@ Item {
         Text {
             width: 450
             elide: Text.ElideRight
-            text: "by " + selectedSongArtist
-            font.pointSize: 20
-            color: "white"
-            horizontalAlignment: Text.AlignHCenter
-        }
-        Text {
-            width: 450
-            elide: Text.ElideRight
-            text: "Sorted by " + selectedAttribute
+            text: "by <b>" + selectedSongArtist + "</b>"
             font.pointSize: 20
             color: "white"
             horizontalAlignment: Text.AlignHCenter
@@ -221,15 +213,17 @@ Item {
         id: resultList
         visible: songSelected
         width: searchField.width
-        height: 400
+        height: 542
         anchors {
             horizontalCenter: parent.horizontalCenter
             top: parent.top
-            topMargin: 300
+            topMargin: 230
         }
         spacing: -2
         interactive: true
         snapMode: ListView.SnapToItem
+        highlightRangeMode: ListView.StrictlyEnforceRange
+        clip: true
 
         delegate: Item {
             width: listView.width
@@ -288,8 +282,9 @@ Item {
         anchors {
             horizontalCenter: parent.horizontalCenter
             top: resultList.bottom
-            topMargin: 50
+            topMargin: 10
         }
+        width: 150
         visible: songSelected
         text: "Back"
         font.pointSize: 15
