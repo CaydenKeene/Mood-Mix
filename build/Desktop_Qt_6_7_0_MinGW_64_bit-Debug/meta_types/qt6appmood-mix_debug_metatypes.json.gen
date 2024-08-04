@@ -95,6 +95,11 @@
                         ],
                         "name": "mergeSort",
                         "returnType": "QVariantList"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_getMergeTime",
+                        "returnType": "QString"
                     }
                 ],
                 "object": true,

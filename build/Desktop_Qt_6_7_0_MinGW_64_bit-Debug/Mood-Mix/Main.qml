@@ -36,6 +36,9 @@ Window {
         width: 500
         height: parent.height
         anchors.centerIn: parent
+        onSongSelectionChanged: {
+            timeCompare.selected = songSelected
+        }
     }
 
     Attribute {
@@ -52,9 +55,10 @@ Window {
     }
 
     TimeCompare {
+        id: timeCompare
         anchors {
             top: parent.top
-            topMargin: 150
+            topMargin: 548
             left: parent.left
             leftMargin: 55
         }

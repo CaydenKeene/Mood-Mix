@@ -2,6 +2,8 @@ import QtQuick
 import QtQuick.Controls.Material
 
 Item {
+    property bool selected: false
+
     Rectangle {
         anchors.fill: parent
         color: "#2b2d31"
@@ -34,7 +36,8 @@ Item {
 
         Text {
             id: mergeSort
-            text: "Merge Sort: "
+            text: selected ? "Merge Sort: " + songManager._getMergeTime(
+                                 ) + "ms" : "Merge Sort: "
             font.pointSize: 20
             color: "white"
             anchors {

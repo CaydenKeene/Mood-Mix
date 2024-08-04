@@ -56,3 +56,7 @@ QVariantList SongManager::searchSongs(const QString &query)
 QVariantList SongManager::mergeSort(QString name, QString songAttribute) {
     return _data.sortByMergeSort(name, songAttribute);
 };
+
+QString SongManager::_getMergeTime() {
+    return _data.getMergeTime();
+}

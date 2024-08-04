@@ -19,6 +19,7 @@ public:
     Q_INVOKABLE void addSongs();
     Q_INVOKABLE QVariantList searchSongs(const QString &query);
     Q_INVOKABLE QVariantList mergeSort(QString name, QString songAttribute);
+    Q_INVOKABLE QString _getMergeTime();
 
 private:
     tsl::htrie_map<char, Song*> m_trie;

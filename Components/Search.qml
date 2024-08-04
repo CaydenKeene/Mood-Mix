@@ -7,6 +7,7 @@ Item {
     property string selectedSongArtist: ""
     property bool songSelected: false
     property string selectedAttribute: ""
+    signal songSelectionChanged(bool songSelected)
 
     TextField {
         id: searchField
@@ -62,6 +63,7 @@ Item {
                 songSelected = true
                 resultList.model = songManager.mergeSort(selectedSongName,
                                                          selectedAttribute)
+                songSelectionChanged(songSelected)
             }
         }
     }
@@ -99,6 +101,7 @@ Item {
                         songSelected = true
                         resultList.model = songManager.mergeSort(
                                     selectedSongName, selectedAttribute)
+                        songSelectionChanged(songSelected)
                     }
                 }
 
@@ -223,6 +226,7 @@ Item {
         interactive: true
         snapMode: ListView.SnapToItem
         highlightRangeMode: ListView.StrictlyEnforceRange
+        boundsBehavior: Flickable.StopAtBounds
         clip: true
 
         delegate: Item {
@@ -295,6 +299,7 @@ Item {
             songSelected = false
             searchField.text = ""
             searchField.focus = true
+            songSelectionChanged(songSelected)
         }
     }
 }

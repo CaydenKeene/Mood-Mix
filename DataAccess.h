@@ -11,6 +11,7 @@
 #include <cmath>
 #include <QVariant>
 #include <QVector>
+#include <chrono>
 
 
 struct Song
@@ -40,6 +41,9 @@ private:
     QVector<Song*> _allSongs;
     QVector<Song*> _mergeSorted;
 
+    //measuring time
+    double mergeTime;
+
     // For getting data from csv
     std::string GetColumnData(std::istringstream& dataStream);
 
@@ -62,6 +66,9 @@ public:
     // For merge sort
     //QVector<Song*> SortByMergeSort(Song* song, SongAttributes songAttribute);
     QVariantList sortByMergeSort(QString &name, QString &songAttribute);
+
+    //getting time
+    QString getMergeTime();
 };
 
 #endif // DATAACCESS_H

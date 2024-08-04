@@ -264,7 +264,7 @@ QVector<Song*> DataAccess::SortByMergeSort(Song* song, SongAttributes songAttrib
 
 
 QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)
-{
+{   
     Song* song;
     for (int i=0; i<_allSongs.size(); i++) {
         if (_allSongs[i]->_trackName == name) {
@@ -274,7 +274,7 @@ QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)
 
     _mergeSorted.clear();
     for(Song* tempSong : GetSongsByGenre(song->_genre))
-    {   if(tempSong != song && tempSong->_popularity >= 50)
+    {   if(tempSong != song)
             _mergeSorted.push_back(tempSong);
     }
 
@@ -297,15 +297,29 @@ QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)
         songAttribute = tempo;
     }
 
+    //start timer
+    auto start = std::chrono::high_resolution_clock::now();
 
+    //run mergeSort function
     mergeSort(_mergeSorted, songAttribute, 0, _mergeSorted.size()-1, attributeVal);
+
+    //end timer and find duration
+    auto end = std::chrono::high_resolution_clock::now();
+    long long mergeTimeMS = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    mergeTime = mergeTimeMS/1000.0;
 
     QVariantList results;
     for (int i=0; i<_mergeSorted.size(); i++) {
-        QVariantMap songMap;
-        songMap["name"] = _mergeSorted[i]->_trackName;
-        songMap["artist"] = _mergeSorted[i]->_artist;
-        results.append(songMap);
+        if (_mergeSorted[i]->_popularity >= 50) {
+            QVariantMap songMap;
+            songMap["name"] = _mergeSorted[i]->_trackName;
+            songMap["artist"] = _mergeSorted[i]->_artist;
+            results.append(songMap);
+        }
     }
     return results;
+}
+
+QString DataAccess::getMergeTime() {
+    return QString::number(mergeTime);
 }
