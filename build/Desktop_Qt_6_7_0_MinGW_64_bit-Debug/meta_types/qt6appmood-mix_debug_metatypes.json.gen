@@ -80,6 +80,21 @@
                         ],
                         "name": "searchSongs",
                         "returnType": "QVariantList"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "songAttribute",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "mergeSort",
+                        "returnType": "QVariantList"
                     }
                 ],
                 "object": true,

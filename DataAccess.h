@@ -9,6 +9,8 @@
 #include <iostream>
 #include <QObject>
 #include <cmath>
+#include <QVariant>
+#include <QVector>
 
 
 struct Song
@@ -58,7 +60,8 @@ public:
     Q_INVOKABLE QVector<Song*>& GetAllSongs();
 
     // For merge sort
-    QVector<Song*> SortByMergeSort(Song* song, SongAttributes songAttribute);
+    //QVector<Song*> SortByMergeSort(Song* song, SongAttributes songAttribute);
+    QVariantList sortByMergeSort(QString &name, QString &songAttribute);
 };
 
 #endif // DATAACCESS_H

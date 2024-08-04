@@ -46,6 +46,7 @@ Window {
         }
         width: 300
         height: 300
+        onAttributeChanged: search.selectedAttribute = newAttribute
     }
 
     TimeCompare {

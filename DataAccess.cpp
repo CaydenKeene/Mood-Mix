@@ -228,7 +228,7 @@ void DataAccess::mergeSort(QVector<Song*>& songList, SongAttributes& songAttribu
     }
 }
 
-
+/*
 QVector<Song*> DataAccess::SortByMergeSort(Song* song, SongAttributes songAttribute)
 {
     _mergeSorted.clear();
@@ -259,4 +259,53 @@ QVector<Song*> DataAccess::SortByMergeSort(Song* song, SongAttributes songAttrib
     mergeSort(_mergeSorted, songAttribute, 0, _mergeSorted.size()-1, attributeVal);
 
     return _mergeSorted;
+}
+*/
+
+
+QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)
+{
+    Song* song;
+    for (int i=0; i<_allSongs.size(); i++) {
+        if (_allSongs[i]->_trackName == name) {
+            song = _allSongs[i];
+        }
+    }
+
+    _mergeSorted.clear();
+    for(Song* tempSong : GetSongsByGenre(song->_genre))
+    {   if(tempSong != song && tempSong->_popularity >= 50)
+            _mergeSorted.push_back(tempSong);
+    }
+
+    enum SongAttributes songAttribute;
+    float attributeVal;
+    if (attribute == "danceability") {
+        attributeVal = song->_danceability;
+        songAttribute = danceability;
+    } else if (attribute == "energy") {
+        attributeVal = song->_energy;
+        songAttribute = energy;
+    } else if (attribute == "loudness") {
+        attributeVal = song->_loudness;
+        songAttribute = loudness;
+    } else if (attribute == "valence") {
+        attributeVal = song->_valence;
+        songAttribute = valence;
+    } else if (attribute == "tempo") {
+        attributeVal = song->_tempo;
+        songAttribute = tempo;
+    }
+
+
+    mergeSort(_mergeSorted, songAttribute, 0, _mergeSorted.size()-1, attributeVal);
+
+    QVariantList results;
+    for (int i=0; i<_mergeSorted.size(); i++) {
+        QVariantMap songMap;
+        songMap["name"] = _mergeSorted[i]->_trackName;
+        songMap["artist"] = _mergeSorted[i]->_artist;
+        results.append(songMap);
+    }
+    return results;
 }

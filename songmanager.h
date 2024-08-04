@@ -18,10 +18,11 @@ public:
     Q_INVOKABLE void addSong(const QString &name, const QString &artist);
     Q_INVOKABLE void addSongs();
     Q_INVOKABLE QVariantList searchSongs(const QString &query);
+    Q_INVOKABLE QVariantList mergeSort(QString name, QString songAttribute);
 
 private:
-    QVector<std::shared_ptr<Song>> m_songs;
     tsl::htrie_map<char, Song*> m_trie;
+    QVector<std::shared_ptr<Song>> m_songs;
     DataAccess _data;
 };
 
