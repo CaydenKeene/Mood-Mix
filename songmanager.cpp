@@ -3,13 +3,8 @@
 SongManager::SongManager(QObject *parent)
     : QObject{parent}
 {
-    _data.LoadData("../../Data/dataset.csv");
+    _data.LoadData("Data/dataset.csv");
     addSongs();
-
-    // TODO: Remove these two lines
-    // This is how I tested the merge sort
-    //SongAttributes testSong = danceability;
-    //_data.SortByMergeSort(_data.GetAllSongs().front(), testSong);
 }
 
 void SongManager::addSongs()
@@ -20,16 +15,6 @@ void SongManager::addSongs()
     }
 }
 
-void SongManager::addSong(const QString &name, const QString &artist)
-{
-    //creates and instance of the song struct and sets the name and the artist
-    //auto song = std::make_shared<Song>(Song{name, artist});
-    //m_songs.append(song);
-
-    //std::string nameStd = name.toLower().toStdString();
-    //qDebug() << "Inserting song:" << QString::fromStdString(nameStd) << "by" << artist;
-   // m_trie.insert(nameStd.c_str(), song);
-}
 
 QVariantList SongManager::searchSongs(const QString &query)
 {

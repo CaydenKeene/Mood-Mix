@@ -23,11 +23,12 @@ DataAccess::~DataAccess()
 void DataAccess::LoadData(std::string fileName)
 {
 
-    //fileName = fileName;
-
     if(!std::filesystem::exists(fileName))
     {
-        throw std::runtime_error("Could not find file: " + fileName);
+        fileName = "../../" + fileName;
+         if(!std::filesystem::exists(fileName))
+             throw std::runtime_error("Could not find file: " + fileName);
+
     }
 
     std::ifstream dataSet(fileName);
@@ -231,40 +232,6 @@ void DataAccess::mergeSort(QVector<Song*>& songList, SongAttributes& songAttribu
         merge(songList, songAttribute, left, mid, right, attributeVal);
     }
 }
-
-/*
-QVector<Song*> DataAccess::SortByMergeSort(Song* song, SongAttributes songAttribute)
-{
-    _mergeSorted.clear();
-    for(Song* tempSong : GetSongsByGenre(song->_genre))
-    {   if(tempSong != song && tempSong->_popularity >= 30)
-            _mergeSorted.push_back(tempSong);
-    }
-
-    float attributeVal;
-    switch(songAttribute) {
-    case danceability:
-        attributeVal = song->_danceability;
-        break;
-    case energy:
-        attributeVal = song->_energy;
-        break;
-    case loudness:
-        attributeVal = song->_loudness;
-        break;
-    case valence:
-        attributeVal = song->_valence;
-        break;
-    case tempo:
-        attributeVal = song->_tempo;
-        break;
-    }
-
-    mergeSort(_mergeSorted, songAttribute, 0, _mergeSorted.size()-1, attributeVal);
-
-    return _mergeSorted;
-}
-*/
 
 
 QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)

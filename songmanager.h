@@ -16,7 +16,6 @@ class SongManager : public QObject
 public:
     explicit SongManager(QObject *parent = nullptr);
 
-    Q_INVOKABLE void addSong(const QString &name, const QString &artist);
     Q_INVOKABLE void addSongs();
     Q_INVOKABLE QVariantList searchSongs(const QString &query);
     Q_INVOKABLE QVariantList mergeSort(QString name, QString songAttribute);
