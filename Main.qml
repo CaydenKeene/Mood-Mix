@@ -65,4 +65,15 @@ Window {
         width: 300
         height: 225
     }
+
+    Info {
+        id: info
+        anchors {
+            top: parent.top
+            topMargin: 150
+            horizontalCenter: timeCompare.horizontalCenter
+        }
+        width: 350
+        height: 254
+    }
 }

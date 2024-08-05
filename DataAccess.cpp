@@ -275,7 +275,14 @@ QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)
 
     //adds all the songs from the given songs genre to the _mergeSorted vector
     _mergeSorted.clear();
+    /*
     for(Song* tempSong : GetSongsByGenre(song->_genre))
+    {   if(tempSong != song)
+            _mergeSorted.push_back(tempSong);
+    }
+    */
+    //adds all the songs to be sorted instead of just one genre
+    for(Song* tempSong : _allSongs)
     {   if(tempSong != song)
             _mergeSorted.push_back(tempSong);
     }
@@ -312,7 +319,8 @@ QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)
 
     QVariantList results;
     for (int i=0; i<_mergeSorted.size(); i++) {
-        if (_mergeSorted[i]->_popularity >= 50) {
+        //changed to only display songs of the same genre
+        if (_mergeSorted[i]->_popularity >= 50 && _mergeSorted[i]->_genre == song->_genre) {
             QVariantMap songMap;
             songMap["name"] = _mergeSorted[i]->_trackName;
             songMap["artist"] = _mergeSorted[i]->_artist;
@@ -333,6 +341,9 @@ QString DataAccess::getShellTime() {
     return QString::number(shellTime);
 }
 
+//possible fix to shellSort being faster than the mergeSort is to sort all of the
+//songs and then only add the songs of the same genre do the vector that is displayed
+
 //void bc we only use the sorted QVariantList from the mergeSort function
 void DataAccess::sortByShellSort(QString &name, QString &attribute) {
     //finds the song pointer for the given song name
@@ -345,7 +356,8 @@ void DataAccess::sortByShellSort(QString &name, QString &attribute) {
 
     //adds all the songs from the given songs genre to the _shellSorted vector
     _shellSorted.clear();
-    for(Song* tempSong : GetSongsByGenre(song->_genre)) {
+    //changed to use all songs
+    for(Song* tempSong : _allSongs) {
         if(tempSong != song) {
             float  val;
             if (attribute == "danceability") {
@@ -393,11 +405,12 @@ void DataAccess::sortByShellSort(QString &name, QString &attribute) {
 
     qDebug() << "songs sorted using shell: " << _shellSorted.size();
 
-
+    int count = 0;
     for (int i=0; i<_shellSorted.size(); i++) {
-        if (_shellSorted[i].first->_popularity >= 50) {
+        if (_shellSorted[i].first->_popularity >= 50 && _shellSorted[i].first->_genre == song->_genre) {
             qDebug() << _shellSorted[i].first->_trackName << _shellSorted[i].second;
+            count++;
         }
     }
-
+    qDebug() << "Songs shown: " << count;
 }
