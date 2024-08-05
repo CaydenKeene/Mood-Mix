@@ -120,6 +120,17 @@
                         "access": "public",
                         "name": "_getShellTime",
                         "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "trackID",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "spotify",
+                        "returnType": "void"
                     }
                 ],
                 "object": true,

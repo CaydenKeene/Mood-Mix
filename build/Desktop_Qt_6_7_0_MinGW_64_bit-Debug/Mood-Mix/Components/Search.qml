@@ -242,10 +242,19 @@ Item {
             Rectangle {
                 width: parent.width
                 height: parent.height
-                color: "#313338"
+                color: mouseAreaResult.containsMouse ? "#455A64" : "#313338"
                 border.color: "#90CAF9"
                 border.width: 2
                 radius: 5
+
+                MouseArea {
+                    id: mouseAreaResult
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        songManager.spotify(modelData.trackID)
+                    }
+                }
 
                 Rectangle {
                     width: 2

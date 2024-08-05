@@ -22,6 +22,7 @@ public:
     Q_INVOKABLE void shellSort(QString name, QString songAttribute);
     Q_INVOKABLE QString _getMergeTime();
     Q_INVOKABLE QString _getShellTime();
+    Q_INVOKABLE void spotify(QString trackID);
 
 private:
     tsl::htrie_map<char, Song*> m_trie;

@@ -67,5 +67,9 @@ QString SongManager::_getShellTime() {
 }
 
 void SongManager::shellSort(QString name, QString songAttribute) {
-    return _data.sortByShellSort(name, songAttribute);
+    _data.sortByShellSort(name, songAttribute);
+}
+
+void SongManager::spotify(QString trackID) {
+    _data.openInSpotify(trackID);
 }
