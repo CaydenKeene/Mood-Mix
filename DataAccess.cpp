@@ -154,21 +154,22 @@ void DataAccess::merge(QVector<Song*>& songList, SongAttributes& songAttribute, 
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
-    QVector<Song*> X;
-    QVector<Song*> Y;
+    Song** X = new Song*[n1];
+    Song** Y = new Song*[n2];
 
     for (int i = 0; i < n1; i++)
-        X.push_back(songList[left + i]);
+        X[i] = songList[left + i];
     for (int j = 0; j < n2; j++)
-        Y.push_back(songList[mid + 1 + j]);
+        Y[j] = songList[mid + 1 + j];
 
     int i, j, k;
     i = 0;
     j = 0;
     k = left;
+    bool lessThanEqual = false;
     while (i < n1 && j < n2)
     {
-        bool lessThanEqual = false;
+
         switch(songAttribute) {
         case danceability:
             lessThanEqual = abs(attributeVal - X[i]->_danceability) <= abs(attributeVal - Y[j]->_danceability);
@@ -213,6 +214,9 @@ void DataAccess::merge(QVector<Song*>& songList, SongAttributes& songAttribute, 
         j++;
         k++;
     }
+
+    delete[] X;
+    delete[] Y;
 }
 
 void DataAccess::mergeSort(QVector<Song*>& songList, SongAttributes& songAttribute, int left, int right, const float& attributeVal)
