@@ -40,9 +40,11 @@ private:
     std::unordered_map<QString, QVector<Song*>> _genreCollection;
     QVector<Song*> _allSongs;
     QVector<Song*> _mergeSorted;
+    QVector<QPair<Song*, float>> _shellSorted;
 
     //measuring time
     double mergeTime;
+    double shellTime;
 
     // For getting data from csv
     std::string GetColumnData(std::istringstream& dataStream);
@@ -65,10 +67,14 @@ public:
 
     // For merge sort
     //QVector<Song*> SortByMergeSort(Song* song, SongAttributes songAttribute);
-    QVariantList sortByMergeSort(QString &name, QString &songAttribute);
+    QVariantList sortByMergeSort(QString &name, QString &attribute);
+
+    // shell sort
+    void sortByShellSort(QString &name, QString &attribute);
 
     //getting time
     QString getMergeTime();
+    QString getShellTime();
 };
 
 #endif // DATAACCESS_H

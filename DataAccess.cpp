@@ -264,7 +264,8 @@ QVector<Song*> DataAccess::SortByMergeSort(Song* song, SongAttributes songAttrib
 
 
 QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)
-{   
+{
+    //finds the song pointer for the given song name
     Song* song;
     for (int i=0; i<_allSongs.size(); i++) {
         if (_allSongs[i]->_trackName == name) {
@@ -272,6 +273,7 @@ QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)
         }
     }
 
+    //adds all the songs from the given songs genre to the _mergeSorted vector
     _mergeSorted.clear();
     for(Song* tempSong : GetSongsByGenre(song->_genre))
     {   if(tempSong != song)
@@ -317,9 +319,85 @@ QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)
             results.append(songMap);
         }
     }
+
+    qDebug() << "songs sorted using merge: " << _mergeSorted.size();
+
     return results;
 }
 
 QString DataAccess::getMergeTime() {
     return QString::number(mergeTime);
+}
+
+QString DataAccess::getShellTime() {
+    return QString::number(shellTime);
+}
+
+//void bc we only use the sorted QVariantList from the mergeSort function
+void DataAccess::sortByShellSort(QString &name, QString &attribute) {
+    //finds the song pointer for the given song name
+    Song* song;
+    for (int i=0; i<_allSongs.size(); i++) {
+        if (_allSongs[i]->_trackName == name) {
+            song = _allSongs[i];
+        }
+    }
+
+    //adds all the songs from the given songs genre to the _shellSorted vector
+    _shellSorted.clear();
+    for(Song* tempSong : GetSongsByGenre(song->_genre)) {
+        if(tempSong != song) {
+            float  val;
+            if (attribute == "danceability") {
+                val = abs(song->_danceability - tempSong->_danceability);
+            } else if (attribute == "energy") {
+                val = abs(song->_energy - tempSong->_energy);
+            } else if (attribute == "loudness") {
+                val = abs(song->_loudness - tempSong->_loudness);
+            } else if (attribute == "valence") {
+                val = abs(song->_valence - tempSong->_valence);
+            } else if (attribute == "tempo") {
+                val = abs(song->_tempo - tempSong->_tempo);
+            }
+            _shellSorted.push_back({tempSong, val});
+        }
+    }
+
+    //start timer
+    auto start = std::chrono::high_resolution_clock::now();
+
+    //run shellSort function
+    int n = _shellSorted.size();
+    int gap = n/2;
+    while (gap > 0) {
+        for (int i=gap; i<n; i++) {
+            QPair<Song*, float> temp;
+            temp = _shellSorted[i];
+            int j;
+            for (j=i; j>=gap && _shellSorted[j-gap].second > temp.second; j-=gap) {
+                _shellSorted[j] =  _shellSorted[j-gap];
+            }
+            _shellSorted[j] = temp;
+        }
+        if (gap == 2) {
+            gap = 1;
+        } else {
+            gap /= 2.2;
+        }
+    }
+
+    //end timer and find duration
+    auto end = std::chrono::high_resolution_clock::now();
+    long long shellTimeMS = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    shellTime = shellTimeMS/1000.0;
+
+    qDebug() << "songs sorted using shell: " << _shellSorted.size();
+
+
+    for (int i=0; i<_shellSorted.size(); i++) {
+        if (_shellSorted[i].first->_popularity >= 50) {
+            qDebug() << _shellSorted[i].first->_trackName << _shellSorted[i].second;
+        }
+    }
+
 }

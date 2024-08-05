@@ -12,7 +12,7 @@ Item {
     TextField {
         id: searchField
         width: 450
-        placeholderText: "Search Song"
+        placeholderText: "Search Song Name"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: 150
@@ -63,6 +63,7 @@ Item {
                 songSelected = true
                 resultList.model = songManager.mergeSort(selectedSongName,
                                                          selectedAttribute)
+                songManager.shellSort(selectedSongName, selectedAttribute)
                 songSelectionChanged(songSelected)
             }
         }
@@ -101,6 +102,8 @@ Item {
                         songSelected = true
                         resultList.model = songManager.mergeSort(
                                     selectedSongName, selectedAttribute)
+                        songManager.shellSort(selectedSongName,
+                                              selectedAttribute)
                         songSelectionChanged(songSelected)
                     }
                 }

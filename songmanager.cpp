@@ -60,3 +60,11 @@ QVariantList SongManager::mergeSort(QString name, QString songAttribute) {
 QString SongManager::_getMergeTime() {
     return _data.getMergeTime();
 }
+
+QString SongManager::_getShellTime() {
+    return _data.getShellTime();
+}
+
+void SongManager::shellSort(QString name, QString songAttribute) {
+    return _data.sortByShellSort(name, songAttribute);
+}

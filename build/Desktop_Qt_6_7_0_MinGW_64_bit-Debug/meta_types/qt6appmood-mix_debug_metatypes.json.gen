@@ -98,7 +98,27 @@
                     },
                     {
                         "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "songAttribute",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "shellSort",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
                         "name": "_getMergeTime",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_getShellTime",
                         "returnType": "QString"
                     }
                 ],

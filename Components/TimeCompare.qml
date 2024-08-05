@@ -50,7 +50,8 @@ Item {
 
         Text {
             id: shellSort
-            text: "Shell Sort: "
+            text: selected ? "Shell Sort: " + songManager._getShellTime(
+                                 ) + "ms" : "Shell Sort: "
             font.pointSize: 20
             color: "white"
             anchors {
