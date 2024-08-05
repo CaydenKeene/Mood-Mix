@@ -5,6 +5,7 @@ Item {
     property alias searching: searchField.focus
     property string selectedSongName: ""
     property string selectedSongArtist: ""
+    property string selectedSongTrackID: ""
     property bool songSelected: false
     property string selectedAttribute: ""
     signal songSelectionChanged(bool songSelected)
@@ -60,10 +61,11 @@ Item {
                 var item = songManager.searchSongs(searchField.text)[0]
                 selectedSongName = item.name
                 selectedSongArtist = item.artist
+                selectedSongTrackID = item.trackID
                 songSelected = true
-                resultList.model = songManager.mergeSort(selectedSongName,
+                resultList.model = songManager.mergeSort(selectedSongTrackID,
                                                          selectedAttribute)
-                songManager.shellSort(selectedSongName, selectedAttribute)
+                songManager.shellSort(selectedSongTrackID, selectedAttribute)
                 songSelectionChanged(songSelected)
             }
         }
@@ -99,10 +101,11 @@ Item {
                     onClicked: {
                         selectedSongName = modelData.name
                         selectedSongArtist = modelData.artist
+                        selectedSongTrackID = item.trackID
                         songSelected = true
                         resultList.model = songManager.mergeSort(
-                                    selectedSongName, selectedAttribute)
-                        songManager.shellSort(selectedSongName,
+                                    selectedSongTrackID, selectedAttribute)
+                        songManager.shellSort(selectedSongTrackID,
                                               selectedAttribute)
                         songSelectionChanged(songSelected)
                     }

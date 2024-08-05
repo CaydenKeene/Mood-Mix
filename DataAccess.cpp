@@ -272,7 +272,7 @@ QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)
     //finds the song pointer for the given song name
     Song* song;
     for (int i=0; i<_allSongs.size(); i++) {
-        if (_allSongs[i]->_trackName == name) {
+        if (_allSongs[i]->_trackID == name) {
             song = _allSongs[i];
         }
     }
@@ -328,6 +328,7 @@ QVariantList DataAccess::sortByMergeSort(QString &name, QString &attribute)
             QVariantMap songMap;
             songMap["name"] = _mergeSorted[i]->_trackName;
             songMap["artist"] = _mergeSorted[i]->_artist;
+            songMap["trackID"] = _mergeSorted[i]->_trackID;
             results.append(songMap);
         }
     }

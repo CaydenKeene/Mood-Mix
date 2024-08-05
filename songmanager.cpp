@@ -46,6 +46,7 @@ QVariantList SongManager::searchSongs(const QString &query)
         QVariantMap songMap;
         songMap["name"] = it.value()->_trackName;
         songMap["artist"] = it.value()->_artist;
+        songMap["trackID"] = it.value()->_trackID;
         results.append(songMap);
         count++;
     }
