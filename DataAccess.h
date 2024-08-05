@@ -12,8 +12,6 @@
 #include <QVariant>
 #include <QVector>
 #include <chrono>
-#include <QDesktopServices>
-#include <QUrl>
 
 
 struct Song
@@ -77,8 +75,6 @@ public:
     //getting time
     QString getMergeTime();
     QString getShellTime();
-
-    void openInSpotify(QString& trackID);
 };
 
 #endif // DATAACCESS_H

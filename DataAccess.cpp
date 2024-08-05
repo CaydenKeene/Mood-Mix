@@ -419,9 +419,3 @@ void DataAccess::sortByShellSort(QString &name, QString &attribute) {
     }
     qDebug() << "Songs shown: " << count;
 }
-
-void DataAccess::openInSpotify(QString& trackID)
-{
-    QString link = "https://open.spotify.com/track/" + trackID;
-    QDesktopServices::openUrl(QUrl(link));
-}
