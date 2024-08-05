@@ -3,7 +3,7 @@
 SongManager::SongManager(QObject *parent)
     : QObject{parent}
 {
-    _data.LoadData("dataset.csv");
+    _data.LoadData("../../Data/dataset.csv");
     addSongs();
 
     // TODO: Remove these two lines

@@ -23,7 +23,7 @@ DataAccess::~DataAccess()
 void DataAccess::LoadData(std::string fileName)
 {
 
-    //fileName =  + fileName;
+    //fileName = fileName;
 
     if(!std::filesystem::exists(fileName))
     {

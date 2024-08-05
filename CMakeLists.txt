@@ -27,7 +27,7 @@ qt_add_qml_module(appMood-Mix
         RESOURCES Icons/spotify.svg
         RESOURCES Icons/spotify.png
         RESOURCES Data/dataset.csv
-)
+    )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
