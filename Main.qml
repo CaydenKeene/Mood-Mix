@@ -74,6 +74,6 @@ Window {
             horizontalCenter: timeCompare.horizontalCenter
         }
         width: 350
-        height: 254
+        height: 299
     }
 }

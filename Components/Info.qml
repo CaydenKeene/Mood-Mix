@@ -20,7 +20,7 @@ Item {
         }
         Text {
             width: 330
-            text: "Enter a song that you want to find other songs similar to. Then select the mood (song attribute) that you want to sort by."
+            text: "Enter a song that you want to find other songs similar to. Then select the mood (song attribute) that you want to sort by. Clicking on a song will open the song in spotify on your computer."
             font.pointSize: 15
             color: "white"
             wrapMode: Text.Wrap
@@ -35,7 +35,7 @@ Item {
             color: "white"
             wrapMode: Text.Wrap
             anchors.top: parent.top
-            anchors.topMargin: 160
+            anchors.topMargin: 205
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }
