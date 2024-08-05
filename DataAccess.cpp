@@ -354,7 +354,7 @@ void DataAccess::sortByShellSort(QString &name, QString &attribute) {
     //finds the song pointer for the given song name
     Song* song;
     for (int i=0; i<_allSongs.size(); i++) {
-        if (_allSongs[i]->_trackName == name) {
+        if (_allSongs[i]->_trackID == name) {
             song = _allSongs[i];
         }
     }

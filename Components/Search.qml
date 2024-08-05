@@ -101,7 +101,7 @@ Item {
                     onClicked: {
                         selectedSongName = modelData.name
                         selectedSongArtist = modelData.artist
-                        selectedSongTrackID = item.trackID
+                        selectedSongTrackID = modelData.trackID
                         songSelected = true
                         resultList.model = songManager.mergeSort(
                                     selectedSongTrackID, selectedAttribute)
