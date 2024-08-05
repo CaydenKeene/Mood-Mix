@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/Mood-Mix">
+    <file alias="qmldir">C:/Users/Duncan/Documents/UF/2024/Summer_Term_2024/COP3530-DataStructuresAndAlgorithms/Mood-Mix/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/Mood-Mix/qmldir</file>
+  </qresource>
+</RCC>
+

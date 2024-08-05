@@ -22,12 +22,12 @@ DataAccess::~DataAccess()
 
 void DataAccess::LoadData(std::string fileName)
 {
-    fileName = "/" + fileName;
-    fileName = QCoreApplication::applicationDirPath().toUtf8().constData() + fileName;
+
+    //fileName =  + fileName;
 
     if(!std::filesystem::exists(fileName))
     {
-        throw std::runtime_error("Could not find file" + fileName);
+        throw std::runtime_error("Could not find file: " + fileName);
     }
 
     std::ifstream dataSet(fileName);

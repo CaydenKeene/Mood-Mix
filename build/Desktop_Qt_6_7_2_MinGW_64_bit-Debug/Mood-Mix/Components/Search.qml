@@ -242,10 +242,32 @@ Item {
             Rectangle {
                 width: parent.width
                 height: parent.height
-                color: "#313338"
+                color: mouseAreaResult.containsMouse ? "#55834f" : "#313338"
                 border.color: "#90CAF9"
                 border.width: 2
                 radius: 5
+
+                MouseArea {
+                    id: mouseAreaResult
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        songManager.spotify(modelData.trackID)
+                    }
+                }
+
+                Image {
+                    anchors {
+                        left: parent.left
+                        leftMargin: 10
+                        top: parent.top
+                        topMargin: 15
+                    }
+                    width: 25
+                    height: 25
+                    source: "../Icons/spotify.svg"
+                    //fillMode: Image.PreserveAspectFit
+                }
 
                 Rectangle {
                     width: 2
@@ -267,7 +289,7 @@ Item {
                     width: parent.width - 15
                     elide: Text.ElideRight
                     anchors.left: parent.left
-                    anchors.leftMargin: 15
+                    anchors.leftMargin: 40
                     anchors.top: parent.top
                     anchors.topMargin: -4
                     text: modelData.name
@@ -278,7 +300,7 @@ Item {
                     width: parent.width - 15
                     elide: Text.ElideRight
                     anchors.left: parent.left
-                    anchors.leftMargin: 15
+                    anchors.leftMargin: 40
                     anchors.top: parent.top
                     anchors.topMargin: 28
                     text: modelData.artist

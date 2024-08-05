@@ -1,0 +1,149 @@
+[
+    {
+        "classes": [
+            {
+                "className": "DataAccess",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "fileName",
+                                "type": "std::string"
+                            }
+                        ],
+                        "name": "LoadData",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "genreName",
+                                "type": "QString&"
+                            }
+                        ],
+                        "name": "GetSongsByGenre",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "GetAllSongs",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "DataAccess",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "DataAccess.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "SongManager",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "artist",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "addSong",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "addSongs",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "query",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "searchSongs",
+                        "returnType": "QVariantList"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "songAttribute",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "mergeSort",
+                        "returnType": "QVariantList"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "songAttribute",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "shellSort",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_getMergeTime",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_getShellTime",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "trackID",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "spotify",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "SongManager",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "songmanager.h",
+        "outputRevision": 68
+    }
+]
