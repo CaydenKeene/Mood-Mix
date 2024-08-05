@@ -1,4 +1,4 @@
-set(qml_import_scanner_imports_count 16)
+set(qml_import_scanner_imports_count 17)
 set(qml_import_scanner_import_0 "CLASSNAME;QtQuick2Plugin;LINKTARGET;Qt6::qtquick2plugin;NAME;QtQuick;PATH;C:/Qt/6.7.0/mingw_64/qml/QtQuick;PLUGIN;qtquick2plugin;PLUGINISOPTIONAL;;PREFER;:/qt-project.org/imports/QtQuick/;RELATIVEPATH;QtQuick;TYPE;module;")
 set(qml_import_scanner_import_1 "CLASSNAME;QtQmlMetaPlugin;LINKTARGET;Qt6::QmlMeta;NAME;QtQml;PATH;C:/Qt/6.7.0/mingw_64/qml/QtQml;PLUGIN;qmlmetaplugin;PLUGINISOPTIONAL;;PREFER;:/qt-project.org/imports/QtQml/;RELATIVEPATH;QtQml;TYPE;module;")
 set(qml_import_scanner_import_2 "CLASSNAME;QtQmlPlugin;LINKTARGET;Qt6::qmlplugin;NAME;QtQml.Base;PATH;C:/Qt/6.7.0/mingw_64/qml/QtQml/Base;PLUGIN;qmlplugin;PLUGINISOPTIONAL;;PREFER;:/qt-project.org/imports/QtQml/Base/;RELATIVEPATH;QtQml/Base;TYPE;module;")
@@ -15,4 +15,5 @@ set(qml_import_scanner_import_12 "CLASSNAME;QtQuickControls2BasicStyleImplPlugin
 set(qml_import_scanner_import_13 "CLASSNAME;QmlShapesPlugin;LINKTARGET;Qt6::qmlshapesplugin;NAME;QtQuick.Shapes;PATH;C:/Qt/6.7.0/mingw_64/qml/QtQuick/Shapes;PLUGIN;qmlshapesplugin;PREFER;:/qt-project.org/imports/QtQuick/Shapes/;RELATIVEPATH;QtQuick/Shapes;TYPE;module;")
 set(qml_import_scanner_import_14 "NAME;./Components;PATH;C:/Users/cayde/Desktop/Qt Test Projects/Mood-Mix/Main.qml/Components;TYPE;directory;")
 set(qml_import_scanner_import_15 "NAME;./Components;PATH;C:/Users/cayde/Desktop/Qt Test Projects/Mood-Mix/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Mood-Mix/Main.qml/Components;TYPE;directory;")
+set(qml_import_scanner_import_16 "NAME;./Components;PATH;C:/Users/cayde/Desktop/Qt Test Projects/Mood-Mix/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/Mood-Mix/Main.qml/Components;TYPE;directory;")
 
