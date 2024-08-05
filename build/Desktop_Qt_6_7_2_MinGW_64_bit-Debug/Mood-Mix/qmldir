@@ -2,4 +2,8 @@ module Mood-Mix
 typeinfo appMood-Mix.qmltypes
 prefer :/qt/qml/Mood-Mix/
 Main 1.0 Main.qml
+Attribute 1.0 Components/Attribute.qml
+Search 1.0 Components/Search.qml
+TimeCompare 1.0 Components/TimeCompare.qml
+Info 1.0 Components/Info.qml
 

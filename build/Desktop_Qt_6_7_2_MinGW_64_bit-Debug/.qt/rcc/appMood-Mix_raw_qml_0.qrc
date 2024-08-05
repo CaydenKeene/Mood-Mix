@@ -1,6 +1,10 @@
 <RCC>
   <qresource prefix="/qt/qml/Mood-Mix/">
     <file alias="Main.qml">C:/Users/Duncan/Documents/UF/2024/Summer_Term_2024/COP3530-DataStructuresAndAlgorithms/Mood-Mix/Main.qml</file>
+    <file alias="Components/Attribute.qml">C:/Users/Duncan/Documents/UF/2024/Summer_Term_2024/COP3530-DataStructuresAndAlgorithms/Mood-Mix/Components/Attribute.qml</file>
+    <file alias="Components/Search.qml">C:/Users/Duncan/Documents/UF/2024/Summer_Term_2024/COP3530-DataStructuresAndAlgorithms/Mood-Mix/Components/Search.qml</file>
+    <file alias="Components/TimeCompare.qml">C:/Users/Duncan/Documents/UF/2024/Summer_Term_2024/COP3530-DataStructuresAndAlgorithms/Mood-Mix/Components/TimeCompare.qml</file>
+    <file alias="Components/Info.qml">C:/Users/Duncan/Documents/UF/2024/Summer_Term_2024/COP3530-DataStructuresAndAlgorithms/Mood-Mix/Components/Info.qml</file>
   </qresource>
 </RCC>
 

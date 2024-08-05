@@ -12,6 +12,34 @@ namespace _qt_qml_Mood_0x2d_Mix_Main_qml {
         reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
     };
 }
+namespace _qt_qml_Mood_0x2d_Mix_Components_Attribute_qml { 
+    extern const unsigned char qmlData[];
+    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
+    const QQmlPrivate::CachedQmlUnit unit = {
+        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
+    };
+}
+namespace _qt_qml_Mood_0x2d_Mix_Components_Search_qml { 
+    extern const unsigned char qmlData[];
+    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
+    const QQmlPrivate::CachedQmlUnit unit = {
+        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
+    };
+}
+namespace _qt_qml_Mood_0x2d_Mix_Components_TimeCompare_qml { 
+    extern const unsigned char qmlData[];
+    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
+    const QQmlPrivate::CachedQmlUnit unit = {
+        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
+    };
+}
+namespace _qt_qml_Mood_0x2d_Mix_Components_Info_qml { 
+    extern const unsigned char qmlData[];
+    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
+    const QQmlPrivate::CachedQmlUnit unit = {
+        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
+    };
+}
 
 }
 namespace {
@@ -27,6 +55,10 @@ Q_GLOBAL_STATIC(Registry, unitRegistry)
 
 Registry::Registry() {
     resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/Mood-Mix/Main.qml"), &QmlCacheGeneratedCode::_qt_qml_Mood_0x2d_Mix_Main_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/Mood-Mix/Components/Attribute.qml"), &QmlCacheGeneratedCode::_qt_qml_Mood_0x2d_Mix_Components_Attribute_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/Mood-Mix/Components/Search.qml"), &QmlCacheGeneratedCode::_qt_qml_Mood_0x2d_Mix_Components_Search_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/Mood-Mix/Components/TimeCompare.qml"), &QmlCacheGeneratedCode::_qt_qml_Mood_0x2d_Mix_Components_TimeCompare_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/qt/qml/Mood-Mix/Components/Info.qml"), &QmlCacheGeneratedCode::_qt_qml_Mood_0x2d_Mix_Components_Info_qml::unit);
     QQmlPrivate::RegisterQmlUnitCacheHook registration;
     registration.structVersion = 0;
     registration.lookupCachedQmlUnit = &lookupCachedUnit;
